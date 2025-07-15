@@ -1,0 +1,42 @@
+{
+    "sourceFile": "guesthouse-frontend/src/App.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1752227425747,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1752227431668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,25 +1,25 @@\n-import React from \"react\";\n-import { BrowserRouter, Routes, Route } from \"react-router-dom\";\n-import Header from \"./components/Header\";\n-import Home from \"./pages/Home\";\n-import Register from \"./pages/Register\";\n-import Booking from \"./pages/Booking\";\n-import Availability from \"./pages/Availability\";\n-import AdminLogin from \"./pages/AdminLogin\";\n+import logo from './logo.svg';\n+import './App.css';\n \n function App() {\n   return (\n-    <BrowserRouter>\n-      <Header />\n-      <Routes>\n-        <Route path=\"/\" element={<Home />} />\n-        <Route path=\"/register\" element={<Register />} />\n-        <Route path=\"/booking\" element={<Booking />} />\n-        <Route path=\"/availability\" element={<Availability />} />\n-        <Route path=\"/admin\" element={<AdminLogin />} />\n-      </Routes>\n-    </BrowserRouter>\n+    <div className=\"App\">\n+      <header className=\"App-header\">\n+        <img src={logo} className=\"App-logo\" alt=\"logo\" />\n+        <p>\n+          Edit <code>src/App.js</code> and save to reload.\n+        </p>\n+        <a\n+          className=\"App-link\"\n+          href=\"https://reactjs.org\"\n+          target=\"_blank\"\n+          rel=\"noopener noreferrer\"\n+        >\n+          Learn React\n+        </a>\n+      </header>\n+    </div>\n   );\n }\n \n export default App;\n"
+                },
+                {
+                    "date": 1752227440913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,34 @@\n           rel=\"noopener noreferrer\"\n         >\n           Learn React\n         </a>\n-      </header>\n+      </header>import React from \"react\";\n+import { BrowserRouter, Routes, Route } from \"react-router-dom\";\n+import Header from \"./components/Header\";\n+import Home from \"./pages/Home\";\n+import Register from \"./pages/Register\";\n+import Booking from \"./pages/Booking\";\n+import Availability from \"./pages/Availability\";\n+import AdminLogin from \"./pages/AdminLogin\";\n+\n+function App() {\n+  return (\n+    <BrowserRouter>\n+      <Header />\n+      <Routes>\n+        <Route path=\"/\" element={<Home />} />\n+        <Route path=\"/register\" element={<Register />} />\n+        <Route path=\"/booking\" element={<Booking />} />\n+        <Route path=\"/availability\" element={<Availability />} />\n+        <Route path=\"/admin\" element={<AdminLogin />} />\n+      </Routes>\n+    </BrowserRouter>\n+  );\n+}\n+\n+export default App;\n+\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1752227464976,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,24 +1,5 @@\n-import logo from './logo.svg';\n-import './App.css';\n-\n-function App() {\n-  return (\n-    <div className=\"App\">\n-      <header className=\"App-header\">\n-        <img src={logo} className=\"App-logo\" alt=\"logo\" />\n-        <p>\n-          Edit <code>src/App.js</code> and save to reload.\n-        </p>\n-        <a\n-          className=\"App-link\"\n-          href=\"https://reactjs.org\"\n-          target=\"_blank\"\n-          rel=\"noopener noreferrer\"\n-        >\n-          Learn React\n-        </a>\n-      </header>import React from \"react\";\n+import React from \"react\";\n import { BrowserRouter, Routes, Route } from \"react-router-dom\";\n import Header from \"./components/Header\";\n import Home from \"./pages/Home\";\n import Register from \"./pages/Register\";\n@@ -41,10 +22,4 @@\n   );\n }\n \n export default App;\n-\n-    </div>\n-  );\n-}\n-\n-export default App;\n"
+                },
+                {
+                    "date": 1752227502271,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,17 @@\n import React from \"react\";\n import { BrowserRouter, Routes, Route } from \"react-router-dom\";\n-import Header from \"./components/Header\";\n+\n+// Pages\n import Home from \"./pages/Home\";\n import Register from \"./pages/Register\";\n import Booking from \"./pages/Booking\";\n import Availability from \"./pages/Availability\";\n import AdminLogin from \"./pages/AdminLogin\";\n \n+// Components\n+import Header from \"./components/Header\";\n+\n function App() {\n   return (\n     <BrowserRouter>\n       <Header />\n"
+                },
+                {
+                    "date": 1752227979234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { BrowserRouter, Routes, Route } from \"react-router-dom\";\n \n // Pages\n import Home from \"./pages/Home\";\n-import Register from \"./pages/Register\";\n+import Register from \"./pages/register\";\n import Booking from \"./pages/Booking\";\n import Availability from \"./pages/Availability\";\n import AdminLogin from \"./pages/AdminLogin\";\n \n"
+                },
+                {
+                    "date": 1752231712564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,29 +1,15 @@\n-import React from \"react\";\n-import { BrowserRouter, Routes, Route } from \"react-router-dom\";\n+import React from 'react';\n+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';\n+import Register from './pages/Register'; // P अगर capital है तो Pages लिखें\n \n-// Pages\n-import Home from \"./pages/Home\";\n-import Register from \"./pages/register\";\n-import Booking from \"./pages/Booking\";\n-import Availability from \"./pages/Availability\";\n-import AdminLogin from \"./pages/AdminLogin\";\n-\n-// Components\n-import Header from \"./components/Header\";\n-\n function App() {\n   return (\n-    <BrowserRouter>\n-      <Header />\n+    <Router>\n       <Routes>\n-        <Route path=\"/\" element={<Home />} />\n         <Route path=\"/register\" element={<Register />} />\n-        <Route path=\"/booking\" element={<Booking />} />\n-        <Route path=\"/availability\" element={<Availability />} />\n-        <Route path=\"/admin\" element={<AdminLogin />} />\n       </Routes>\n-    </BrowserRouter>\n+    </Router>\n   );\n }\n \n export default App;\n"
+                }
+            ],
+            "date": 1752227425747,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\nimport { BrowserRouter, Routes, Route } from \"react-router-dom\";\nimport Header from \"./components/Header\";\nimport Home from \"./pages/Home\";\nimport Register from \"./pages/Register\";\nimport Booking from \"./pages/Booking\";\nimport Availability from \"./pages/Availability\";\nimport AdminLogin from \"./pages/AdminLogin\";\n\nfunction App() {\n  return (\n    <BrowserRouter>\n      <Header />\n      <Routes>\n        <Route path=\"/\" element={<Home />} />\n        <Route path=\"/register\" element={<Register />} />\n        <Route path=\"/booking\" element={<Booking />} />\n        <Route path=\"/availability\" element={<Availability />} />\n        <Route path=\"/admin\" element={<AdminLogin />} />\n      </Routes>\n    </BrowserRouter>\n  );\n}\n\nexport default App;\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "guesthouse-frontend/src/Pages/Availability.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1752228798870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1752228798870,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\n\r\nconst Availability = () => {\r\n  return <h2>🛏️ Room Availability Page (To Be Implemented)</h2>;\r\n};\r\n\r\nexport default Availability;\r\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "guesthouse-frontend/src/Pages/Home.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1752227371964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1752227371964,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\n\r\nfunction Home() {\r\n  return (\r\n    <div>\r\n      <h1>Welcome to University Guest House</h1>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default Home;\r\n"
+        }
+    ]
+}

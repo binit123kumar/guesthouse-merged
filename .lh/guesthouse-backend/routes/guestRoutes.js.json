@@ -1,0 +1,18 @@
+{
+    "sourceFile": "guesthouse-backend/routes/guestRoutes.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1752229121987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1752229121987,
+            "name": "Commit-0",
+            "content": "const express = require('express');\r\nconst router = express.Router();\r\nconst sql = require('mssql');\r\nconst dbConfig = require('../db/sql');\r\n\r\nrouter.post('/register', async (req, res) => {\r\n  const { name, email, phone } = req.body;\r\n\r\n  try {\r\n    let pool = await sql.connect(dbConfig);\r\n    const query = `\r\n      INSERT INTO Guests (FullName, Email, Phone)\r\n      VALUES (@name, @Email, @Phone)\r\n    `;\r\n\r\n    await pool.request()\r\n      .input('name', sql.VarChar, name)\r\n      .input('Email', sql.VarChar, email)\r\n      .input('Phone', sql.VarChar, phone)\r\n      .query(query);\r\n\r\n    res.status(200).json({ message: 'Guest Registered Successfully!' });\r\n  } catch (err) {\r\n    console.error('Registration error:', err);\r\n    res.status(500).json({ error: 'Registration failed.' });\r\n  }\r\n});\r\n\r\nmodule.exports = router;\r\n"
+        }
+    ]
+}

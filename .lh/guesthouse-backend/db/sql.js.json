@@ -1,0 +1,18 @@
+{
+    "sourceFile": "guesthouse-backend/db/sql.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1752230905925,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1752230905925,
+            "name": "Commit-0",
+            "content": "const config = {\r\n  user: 'your_sql_username',          // <-- अपना username डालें\r\n  password: 'your_sql_password',      // <-- अपना password डालें\r\n  server: 'localhost',                // या 'DESKTOP-XXXX\\\\SQLEXPRESS'\r\n  database: 'GuestHouseDB',\r\n  options: {\r\n    encrypt: false,\r\n    trustServerCertificate: true\r\n  }\r\n};\r\n\r\nmodule.exports = config;\r\n"
+        }
+    ]
+}

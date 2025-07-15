@@ -1,0 +1,26 @@
+{
+    "sourceFile": "guesthouse-frontend/src/Pages/register.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1752227397995,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1752229306269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,16 @@\n-import React from 'react';\r\n+const handleSubmit = async (e) => {\r\n+  e.preventDefault();\r\n+  try {\r\n+    const response = await fetch('http://localhost:5000/api/guest/register', {\r\n+      method: 'POST',\r\n+      headers: { 'Content-Type': 'application/json' },\r\n+      body: JSON.stringify(formData)\r\n+    });\r\n \r\n-function Register() {\r\n-  return (\r\n-    <div>\r\n-      <h2>Guest Registration Page</h2>\r\n-    </div>\r\n-  );\r\n-}\r\n-\r\n-export default Register;\r\n+    const result = await response.json();\r\n+    alert(result.message || \"Registered!\");\r\n+  } catch (err) {\r\n+    console.error(err);\r\n+    alert(\"Error registering guest\");\r\n+  }\r\n+};\r\n"
+                },
+                {
+                    "date": 1752231628419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,34 @@\n-const handleSubmit = async (e) => {\r\n-  e.preventDefault();\r\n-  try {\r\n-    const response = await fetch('http://localhost:5000/api/guest/register', {\r\n-      method: 'POST',\r\n-      headers: { 'Content-Type': 'application/json' },\r\n-      body: JSON.stringify(formData)\r\n-    });\r\n+import React, { useState } from 'react';\r\n+import axios from 'axios';\r\n \r\n-    const result = await response.json();\r\n-    alert(result.message || \"Registered!\");\r\n-  } catch (err) {\r\n-    console.error(err);\r\n-    alert(\"Error registering guest\");\r\n-  }\r\n+const Register = () => {\r\n+  const [guest, setGuest] = useState({ name: '', email: '', phone: '' });\r\n+\r\n+  const handleChange = (e) => {\r\n+    setGuest({ ...guest, [e.target.name]: e.target.value });\r\n+  };\r\n+\r\n+  const handleSubmit = async (e) => {\r\n+    e.preventDefault();\r\n+    try {\r\n+      const res = await axios.post('http://localhost:5000/api/guest/register', guest);\r\n+      alert(res.data.message);\r\n+    } catch (err) {\r\n+      alert('❌ Registration failed!');\r\n+    }\r\n+  };\r\n+\r\n+  return (\r\n+    <div>\r\n+      <h2>Guest Registration</h2>\r\n+      <form onSubmit={handleSubmit}>\r\n+        <input type=\"text\" name=\"name\" placeholder=\"Full Name\" value={guest.name} onChange={handleChange} required /><br/>\r\n+        <input type=\"email\" name=\"email\" placeholder=\"Email\" value={guest.email} onChange={handleChange} required /><br/>\r\n+        <input type=\"text\" name=\"phone\" placeholder=\"Phone Number\" value={guest.phone} onChange={handleChange} required /><br/>\r\n+        <button type=\"submit\">Register</button>\r\n+      </form>\r\n+    </div>\r\n+  );\r\n };\r\n+\r\n+export default Register;\r\n"
+                }
+            ],
+            "date": 1752227397995,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\n\r\nfunction Register() {\r\n  return (\r\n    <div>\r\n      <h2>Guest Registration Page</h2>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default Register;\r\n"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "guesthouse-backend/server.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1752231034992,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1752231331498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n const express = require('express');\r\n const cors = require('cors');\r\n+const open = require('open'); // <-- browser auto-open package\r\n const guestRoutes = require('./routes/guestRoutes');\r\n \r\n const app = express();\r\n app.use(cors());\r\n@@ -8,11 +9,15 @@\n \r\n // Routes\r\n app.use('/api/guest', guestRoutes);\r\n \r\n+// Test route\r\n app.get('/', (req, res) => {\r\n   res.send('Guest House Backend Running!');\r\n });\r\n \r\n+// Server Start\r\n app.listen(5000, () => {\r\n   console.log('✅ Server is running on http://localhost:5000');\r\n+  open('http://localhost:5000'); // <-- browser auto-open\r\n });\r\n+\r\n"
+                },
+                {
+                    "date": 1752231487476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,23 +1,22 @@\n const express = require('express');\r\n const cors = require('cors');\r\n-const open = require('open'); // <-- browser auto-open package\r\n const guestRoutes = require('./routes/guestRoutes');\r\n \r\n+// FIX: open() को dynamic import से बुलाया गया\r\n+const open = (...args) => import('open').then(module => module.default(...args));\r\n+\r\n const app = express();\r\n app.use(cors());\r\n app.use(express.json());\r\n \r\n // Routes\r\n app.use('/api/guest', guestRoutes);\r\n \r\n-// Test route\r\n app.get('/', (req, res) => {\r\n   res.send('Guest House Backend Running!');\r\n });\r\n \r\n-// Server Start\r\n app.listen(5000, () => {\r\n   console.log('✅ Server is running on http://localhost:5000');\r\n-  open('http://localhost:5000'); // <-- browser auto-open\r\n+  open('http://localhost:5000'); // ✅ browser auto open now\r\n });\r\n-\r\n"
+                }
+            ],
+            "date": 1752231034992,
+            "name": "Commit-0",
+            "content": "const express = require('express');\r\nconst cors = require('cors');\r\nconst guestRoutes = require('./routes/guestRoutes');\r\n\r\nconst app = express();\r\napp.use(cors());\r\napp.use(express.json());\r\n\r\n// Routes\r\napp.use('/api/guest', guestRoutes);\r\n\r\napp.get('/', (req, res) => {\r\n  res.send('Guest House Backend Running!');\r\n});\r\n\r\napp.listen(5000, () => {\r\n  console.log('✅ Server is running on http://localhost:5000');\r\n});\r\n"
+        }
+    ]
+}
